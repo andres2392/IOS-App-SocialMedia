@@ -8,9 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("current_status") var status = false
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+
+        NavigationView{
+            
+            VStack{
+                
+                if status{Home()}
+                else{Login()}
+            }
+            .preferredColorScheme(.dark)
+            .navigationBarHidden(true)
+        }
     }
 }
 
